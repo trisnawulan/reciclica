@@ -11,11 +11,12 @@
               <ion-icon slot="start" [ios]="p?.icon + '-outline'" [md]="p?.icon + '-sharp'"></ion-icon>
               <ion-label>{{ p?.title }}</ion-label>
             </ion-item>
-          </ion-menu-toggle>          
-          
+          </ion-menu-toggle>
+
         </ion-list>
       </ion-content>
     </ion-menu>
     <ion-router-outlet id="main-content"></ion-router-outlet>
   </ion-split-pane>
+  <app-loading></app-loading>
 </ion-app>
