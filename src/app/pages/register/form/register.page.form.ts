@@ -11,21 +11,22 @@ export class RegisterPageForm {
 
     private createForm() : FormGroup {
         let form = this.formBuilder.group({
-            name: ['', [Validators.required]],
-            email: ['', [Validators.required, Validators.email]],
-            password: ['', [Validators.required, Validators.minLength(6)]],
-            repeatPassword: [''],
-            phone: ['', [Validators.required]],
-            address: this.formBuilder.group({
-                street: ['', [Validators.required]],
-                number: ['', [Validators.required]],
-                neighborhood: ['', [Validators.required]],
-                complement: ['', [Validators.required]],
-                zipcode: ['', [Validators.required]],
-                state: ['', [Validators.required]],
-                city: ['', [Validators.required]]
-            })
+          name: ['', Validators.required],
+          email: ['', [Validators.required, Validators.email]],
+          password: ['', [Validators.required, Validators.minLength(6)]],
+          repeatPassword: ['', Validators.required],
+          phone: ['', Validators.required],
+          address: this.formBuilder.group({
+            street: ['', Validators.required],
+            number: ['', Validators.required],
+            neighborhood: ['', Validators.required],
+            complement: [''],
+            zipCode: ['', Validators.required],
+            state: ['', Validators.required],
+            city: ['', Validators.required]
+          })
         });
+
 
         form.get('repeatPassword')?.setValidators(matcPasswordAndRepeatPassword(form))
 
