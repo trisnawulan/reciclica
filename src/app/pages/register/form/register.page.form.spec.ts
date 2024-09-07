@@ -80,7 +80,7 @@ describe('RegisterPageForm', () => {
     form.get('address')?.get('number')?.setValue('any number');
     form.get('address')?.get('complement')?.setValue('any complement');
     form.get('address')?.get('neighborhood')?.setValue('any neighorhood');
-    form.get('address')?.get('zipcode')?.setValue('any zipcode');
+    form.get('address')?.get('zipcode')?.setValue('any zip code');
     form.get('address')?.get('city')?.setValue('any city');
     form.get('address')?.get('state')?.setValue('any state');
 

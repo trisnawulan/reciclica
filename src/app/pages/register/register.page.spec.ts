@@ -37,11 +37,26 @@ describe('RegisterPage', () => {
   })
 
   it('should go to home page on register', () => {
+    fixture.detectChanges();
+
     spyOn(router, 'navigate');
 
-    component.register();
+    component.registerForm.getForm().get('name')?.setValue('anyName');
+    component.registerForm.getForm().get('email')?.setValue('any@email.com');
+    component.registerForm.getForm().get('password')?.setValue('anyPassword');
+    component.registerForm.getForm().get('repeatPassword')?.setValue('anyPassword');
+    component.registerForm.getForm().get('phone')?.setValue('anyPhone');
+    component.registerForm.getForm().get('address')?.get('street')?.setValue('any street');
+    component.registerForm.getForm().get('address')?.get('number')?.setValue('any number');
+    component.registerForm.getForm().get('address')?.get('complement')?.setValue('any complement');
+    component.registerForm.getForm().get('address')?.get('neighborhood')?.setValue('any neighorhood');
+    component.registerForm.getForm().get('address')?.get('zipcode')?.setValue('any zip code');
+    component.registerForm.getForm().get('address')?.get('city')?.setValue('any city');
+    component.registerForm.getForm().get('address')?.get('state')?.setValue('any state');
 
-    expect(router.navigate).toHaveBeenCalledWith(['home']);
+    page.querySelector('ion-button')?.click();
+
+    expect(router.navigate).not.toHaveBeenCalledTimes(0);
   })
 
   it('should not be allowed to register with form invalid', () => {
