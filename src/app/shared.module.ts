@@ -4,10 +4,12 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 
 import { PickupCallCardComponent } from './components/pickup-call-card/pickup-call-card.component';
+import { ErrorMessageComponent } from './components/error-message/error-message.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [PickupCallCardComponent], // Deklarasikan komponen
-  exports: [PickupCallCardComponent], // Ekspor komponen agar bisa digunakan di modul lain
-  imports: [CommonModule, IonicModule], // Import modul yang dibutuhkan oleh komponen
+  declarations: [PickupCallCardComponent, ErrorMessageComponent], // Deklarasikan komponen
+  exports: [PickupCallCardComponent, ErrorMessageComponent, FormsModule, IonicModule], // Ekspor komponen agar bisa digunakan di modul lain
+  imports: [CommonModule, IonicModule, FormsModule, IonicModule], // Import modul yang dibutuhkan oleh komponen
 })
 export class SharedModule {}

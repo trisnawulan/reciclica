@@ -10,7 +10,7 @@ import { FormBuilder } from '@angular/forms';
 })
 export class RegisterPage implements OnInit {
 
-  registerForm = RegisterPageForm;
+  registerForm!: RegisterPageForm;
 
   constructor(private router: Router, private formBuilder: FormBuilder) { }
 
@@ -22,7 +22,7 @@ export class RegisterPage implements OnInit {
     this.router.navigate(['home']);
   }
 
-  private createForm() {s
+  private createForm() {
     this.registerForm = new RegisterPageForm(this.formBuilder);
   }
 

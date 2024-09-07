@@ -10,6 +10,7 @@ describe('RegisterPage', () => {
   let component: RegisterPage;
   let fixture: ComponentFixture<RegisterPage>;
   let router: Router;
+  let page: HTMLElement;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -24,8 +25,9 @@ describe('RegisterPage', () => {
 
     fixture = TestBed.createComponent(RegisterPage);
     router = TestBed.get(Router);
+
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    fixture.debugElement.nativeElement;
   });
 
   it('should create register form on page init', () => {
@@ -40,5 +42,15 @@ describe('RegisterPage', () => {
     component.register();
 
     expect(router.navigate).toHaveBeenCalledWith(['home']);
-  });
+  })
+
+  it('should not be allowed to register with form invalid', () => {
+    fixture.detectChanges();
+
+    spyOn(router, 'navigate');
+
+    page.querySelector('ion-button')?.click();
+
+    expect(router.navigate).not.toHaveBeenCalledTimes(0);
+  })
 });
