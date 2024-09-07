@@ -50,7 +50,7 @@ describe('Login effects', () =>{
     effects = TestBed.get(LoginEffects);
   })
 
-  it('should recover password with exiting email retun success', (done) => {
+  it('should recover password with exiting email return success', (done) => {
     actions$ = of(recoverPassword({email: "any@email.com"}));
 
     effects.recoverPassword$.subscribe(newAction => {
